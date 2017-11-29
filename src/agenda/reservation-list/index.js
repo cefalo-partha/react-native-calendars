@@ -32,6 +32,8 @@ class ReactComp extends Component {
 
     selectedDay: PropTypes.instanceOf(XDate),
     topDay: PropTypes.instanceOf(XDate),
+
+    getItemLayout: PropTypes.func,
   };
 
   constructor(props) {
@@ -59,8 +61,9 @@ class ReactComp extends Component {
     const reservations = this.getReservations(props);
     if (this.list && !dateutils.sameDate(props.selectedDay, this.selectedDay)) {
       let scrollPosition = 0;
+      const itemHeight = this.props.getItemLayout ? this.props.getItemLayout(reservations.reservations, 0) : 0;
       for (let i = 0; i < reservations.scrollPosition; i++) {
-        scrollPosition += this.heights[i] || 0;
+        scrollPosition += this.heights[i] || itemHeight;
       }
       this.scrollOver = false;
       this.list.scrollToOffset({offset: scrollPosition, animated: true});
@@ -192,6 +195,7 @@ class ReactComp extends Component {
         scrollEventThrottle={200}
         onMoveShouldSetResponderCapture={() => {this.onListTouch(); return false;}}
         keyExtractor={(item, index) => index}
+        getItemLayout={this.props.getItemLayout}
       />
     );
   }
