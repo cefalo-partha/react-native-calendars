@@ -61,7 +61,7 @@ class ReactComp extends Component {
     const reservations = this.getReservations(props);
     if (this.list && !dateutils.sameDate(props.selectedDay, this.selectedDay)) {
       let scrollPosition = 0;
-      const itemHeight = this.props.getItemLayout ? this.props.getItemLayout(reservations.reservations, 0) : 0;
+      const itemHeight = this.props.getItemLayout ? this.props.getItemLayout(reservations.reservations, 0).length : 0;
       for (let i = 0; i < reservations.scrollPosition; i++) {
         scrollPosition += this.heights[i] || itemHeight;
       }
