@@ -34,6 +34,9 @@ class ReactComp extends Component {
     topDay: PropTypes.instanceOf(XDate),
 
     getItemLayout: PropTypes.func,
+    
+    onEndReached: PropTypes.func,
+    onEndReachedThreshold: PropTypes.number
   };
 
   constructor(props) {
@@ -196,6 +199,8 @@ class ReactComp extends Component {
         onMoveShouldSetResponderCapture={() => {this.onListTouch(); return false;}}
         keyExtractor={(item, index) => index}
         getItemLayout={this.props.getItemLayout}
+        onEndReached={this.props.onEndReached}
+        onEndReachedThreshold={this.props.onEndReachedThreshold}
       />
     );
   }
