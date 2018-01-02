@@ -79,7 +79,10 @@ export default class AgendaView extends Component {
     // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
     monthFormat: PropTypes.string,
 
-    getItemLayout: PropTypes.func
+    getItemLayout: PropTypes.func,
+    
+    onEndReached: PropTypes.func,
+    onEndReachedThreshold: PropTypes.func
   };
 
   constructor(props) {
@@ -280,6 +283,8 @@ export default class AgendaView extends Component {
         ref={(c) => this.list = c}
         theme={this.props.theme}
         getItemLayout={this.props.getItemLayout}
+        onEndReached={this.props.onEndReached}
+        onEndReachedThreshold={this.props.onEndReachedThreshold}
       />
     );
   }
