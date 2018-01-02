@@ -36,7 +36,7 @@ class ReactComp extends Component {
     getItemLayout: PropTypes.func,
 
     onEndReached: PropTypes.func,
-    onEndReachedThreshold: PropTypes.func
+    onEndReachedThreshold: PropTypes.number
   };
 
   constructor(props) {
