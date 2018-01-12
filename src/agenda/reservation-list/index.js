@@ -205,6 +205,7 @@ class ReactComp extends Component {
         onEndReached={this.props.onEndReached}
         onEndReachedThreshold={this.props.onEndReachedThreshold}
         keyboardShouldPersistTaps='always'
+        keyboardDismissMode='on-drag'
       />
     );
   }
