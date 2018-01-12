@@ -204,6 +204,7 @@ class ReactComp extends Component {
         getItemLayout={this.props.getItemLayout}
         onEndReached={this.props.onEndReached}
         onEndReachedThreshold={this.props.onEndReachedThreshold}
+        keyboardShouldPersistTaps='always'
       />
     );
   }
